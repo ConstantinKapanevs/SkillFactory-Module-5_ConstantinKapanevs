@@ -20,10 +20,16 @@ def move_announcement():
 
 def move_request(g, m):
     while True:
-        x = int(input('Введите колонку(x) от 1 до 3:'))
-        y = int(input('\tВведите ряд(y) от 1 до 3:'))
+        x = input('Введите колонку(x) от 1 до 3:')
+        y = input('\tВведите ряд(y) от 1 до 3:')
+        if x.isdigit() and y.isdigit():
+            x = int(x)
+            y = int(y)
+        else:
+            print('Некорректный ввод.Должны быть числа.Повторите')
+            continue
         if x < 1 or x > 3 or y < 1 or y > 3:
-            print('Некорректный ввод.Повторите')
+            print('Некорректный ввод.Должны быть число от 1 до 3.Повторите')
             continue
         elif g[y][x] == '-':
             g[y][x] = m
